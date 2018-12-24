@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/mrdotballard/palindrome/issues"
   },
-  "homepage": "https://github.com/mrdotballard/palindrome#readme"
+  "homepage": "https://github.com/mrdotballard/palindrome#readme",
+  "directories": {
+    "test": "test"
+  }
 }

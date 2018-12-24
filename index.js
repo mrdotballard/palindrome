@@ -9,12 +9,23 @@ String.prototype.reverse = function reverse() {
 function Phrase(content) {
   this.content = content;
 
+// Returns content processed for palindrome testing
   this.processedContent = function processedContent() {
-    return this.content.toLowerCase();
+    return this.letters().toLowerCase();
   }
 
+  this.letters = function letters() {
+    let theLetters = [];
+    for (let i = 0; i < this.content.length; i++) {
+      if (this.content.charAt(i).match(/[a-zA-Z]/)) {
+        theLetters.push(this.content.charAt(i));
+        }
+      }
+    return theLetters.join("");
+    }
+
   // Returns true if the phrase is a palindrome, false otherwise.
-  this.palindrome = function() {
-    return processedContent === this.processedContent().reverse();
+  this.palindrome = function palindrome() {
+    return this.processedContent() === this.processedContent().reverse();
   }
 }
