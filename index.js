@@ -15,17 +15,17 @@ function Phrase(content) {
   }
 
   this.letters = function letters() {
-    let theLetters = [];
-    for (let i = 0; i < this.content.length; i++) {
-      if (this.content.charAt(i).match(/[a-zA-Z]/)) {
-        theLetters.push(this.content.charAt(i));
-        }
-      }
-    return theLetters.join("");
+    const lettersRegEx = /[a-z]/gi;
+    return Array.from(this.content).filter(c => c.match(lettersRegEx)).join("");
+    // return (this.content.match(/[a-z]/gi) || []).join("");
     }
 
   // Returns true if the phrase is a palindrome, false otherwise.
   this.palindrome = function palindrome() {
-    return this.processedContent() === this.processedContent().reverse();
+    if(this.processedContent()){
+      return this.processedContent() === this.processedContent().reverse();
+    } else {
+      return false;
+    }
   }
 }
